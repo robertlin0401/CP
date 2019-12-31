@@ -5,12 +5,12 @@ int main() {
 	while (scanf("%d %d", &i, &j) != EOF) {
 		int cycle = 0;
 		int n;
-		for (n = i; n <= j; ++i) {
-			int count = 0;
+		for (n = i; n <= j; ++n) {
+			int count = 1;
 			int temp = n;
 			while (temp != 1) {
 				++count;
-				if (temp && 1) { // odd
+				if (temp & 1) { // odd
 					temp = 3 * temp + 1;
 				} else {
 					temp >>= 1;
