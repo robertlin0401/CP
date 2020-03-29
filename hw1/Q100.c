@@ -6,28 +6,31 @@
 void swap(int *, int *);
 
 int main() {
-	int i, j;
+	int n, temp; /* iterator */
+	int i, j; /* input */
+	int isSwapped;
+	int cycle;
+	int count;
 	while (scanf("%d %d", &i, &j) != EOF) {
 		
 		/* validation check */
 		if (!(i < 1000000 && i > 0) || !(j < 1000000 && j > 0)) {
 			printf("Invalid input\n");
-			break;
+			continue;
 		}
 		
 		/* swap */
-		int isSwapped = 0;
+		isSwapped = 0;
 		if (i > j) {
 			swap(&i, &j);
 			isSwapped = 1;
 		}
 		
 		/* calculate */
-		int cycle = 0;
-		int n;
+		cycle = 0;
 		for (n = i; n <= j; ++n) {
-			int count = 1;
-			int temp = n;
+			count = 1;
+			temp = n;
 			while (temp != 1) {
 				++count;
 				if (temp & 1) { /* odd */
@@ -44,6 +47,7 @@ int main() {
 		/* output */
 		if (isSwapped) swap(&i, &j);
 		printf("%d %d %d\n", i, j, cycle);
+		
 	}
 }
 
