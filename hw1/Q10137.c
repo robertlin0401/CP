@@ -39,7 +39,7 @@ int main() {
 		/*
 		for (i = 0; i < m; ++i) {
 			for (j = 0; j < n; ++j) {
-				printf("%c", &(*(*(map+i)+j)));
+				printf("%c", *(*(map+i)+j));
 			}
 			printf("\n");
 		}
@@ -50,7 +50,7 @@ int main() {
 		/* output */
 		for (i = 0; i < m; ++i) {
 			for (j = 0; j < n; ++j) {
-				printf("%d", &(*(*(result+i)+j)));
+				printf("%d", *(*(result+i)+j));
 			}
 			printf("\n");
 		}
