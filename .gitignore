@@ -1,2 +1,6 @@
 # executable file
 */a.out
+
+# report
+*/*.docx
+*/*.pdf

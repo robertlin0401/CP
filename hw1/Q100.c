@@ -49,6 +49,7 @@ int main() {
 		printf("%d %d %d\n", i, j, cycle);
 		
 	}
+	return 0;
 }
 
 void swap(int *a, int *b) {
