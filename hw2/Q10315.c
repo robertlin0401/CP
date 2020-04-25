@@ -200,8 +200,9 @@ int isThreeOfAKind(int *value) {
 }
 
 int isStraight(int *value) {
-	for (i = 0; i < 4; ++i) {
-		if (value[i] != value[i+1] - 1) return 0;
+	int iter;
+	for (iter = 0; iter < 4; ++iter) {
+		if (value[iter] != value[iter+1] - 1) return 0;
 	}
 	return 1;
 }
@@ -215,7 +216,7 @@ int isFlush(char **hand) {
 	}
 	/* check flush */
 	for (iter = 0; iter < 4; ++iter) {
-		if (suit[iter] != iter[iter+1]) {
+		if (suit[iter] != suit[iter+1]) {
 			free(suit);
 			return 0;
 		}
@@ -296,7 +297,7 @@ void compareHighCard(int *black, int *white, int length) {
 void comparePair(int *black, int *white, int pairLength) {
 	/* compare pair */
 	int blackPairIndex = getPairIndex(black, 5);
-	int whitePairIndex = gerPairIndex(white, 5);
+	int whitePairIndex = getPairIndex(white, 5);
 	if (black[blackPairIndex] > white[whitePairIndex]) {
 		printf("Black wins.\n");
 		return;
