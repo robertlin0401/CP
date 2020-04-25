@@ -80,8 +80,9 @@ int main() {
 		}
 		free(map);
 		free(result);
-		
+	
 	}
+	return 0;
 }
 
 void calculateResult(int **result, char **map, int m, int n) {
@@ -167,6 +168,7 @@ void calculateResult(int **result, char **map, int m, int n) {
 			}
 		}
 	}
+	return;
 }
 
 int top(char **map, int i, int j) { return (*(*(map+i-1)+j) == '*'); }

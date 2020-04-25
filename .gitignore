@@ -4,3 +4,6 @@
 # report
 */*.docx
 */*.pdf
+
+# zip
+*/*.zip
