@@ -35,7 +35,7 @@ int main() {
 	char **black, **white;	/* hands */
 	int i;	/* iterator */
 	
-	/* malloc */
+	/* allocation */
 	str = (char *)malloc(30 * sizeof(char));
 	black = (char **)malloc(5 * sizeof(char *));
 	white = (char **)malloc(5 * sizeof(char *));
@@ -45,21 +45,20 @@ int main() {
 	}
 	
 	/* loop */
-	while (scanf("%s", str) != EOF) {
+	while (gets(str) != NULL) {
 		
 		/* string processing */
 		int count = 0;
-		char *temp = (char *)malloc(2 * sizeof(char));
+		char *temp = (char *)malloc(10 * sizeof(char));
 		temp = strtok(str, " ");
-		black[count] = temp;
-		++count;
 		while (temp != NULL) {
-			temp = strtok(NULL, " ");
 			if (count < 5) {
-				black[count] = temp;
+				strncpy(black[count], temp, 2);
 			} else {
-				white[count-5] = temp;
+				strncpy(white[count-5], temp, 2);
 			}
+			++count;
+			temp = strtok(NULL, " ");
 		}
 		free(temp);
 		/*
@@ -123,6 +122,8 @@ int *getValue(char **hand) {
 	for (i = 0; i < 5; ++i) {
 		if (hand[i][0] == 'A') {
 			result[i] = 14;		/* A is the largest */
+		} else if (hand[i][0] == 'T') {
+			result[i] = 10;
 		} else if (hand[i][0] == 'J') {
 			result[i] = 11;
 		} else if (hand[i][0] == 'Q') {
@@ -155,7 +156,7 @@ int getPairIndex(int *value, int length) {
 }
 
 int *getRemaining(int *value, int length, int index, int pairLength) {
-	int *remaining = (int *)malloc(length-pairLength * sizeof(int));
+	int *remaining = (int *)malloc((length-pairLength) * sizeof(int));
 	int iter, count = 0;
 	for (iter = 0; iter < length; ++iter) {
 		if (iter == index) {
