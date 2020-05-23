@@ -79,6 +79,7 @@ int main() {
 int toLowerCase(char *str) {
 	int index = 0;
 	while (1) {
+		if (str[index] == '\0') break;
 		if (str[index] == '\n') {
 			str[index] = '\0';
 			break;
@@ -139,6 +140,7 @@ int findDirection(char **map, char *input, int inputLength, int x, int y, int in
 		yDirection = (direction / 4 == 0)? -1: 1;
 	}
 	
+	/*	section A
 	if (map[x][y] == input[index]) {
 		if (inputLength == index+1) {
 			return 1;
@@ -148,6 +150,17 @@ int findDirection(char **map, char *input, int inputLength, int x, int y, int in
 	} else {
 		return 0;
 	}
+	*/
+	
+	/*	section B
+	int iter;
+	for (iter = 0; iter < inputLength; ++iter) {
+		if (map[x+xDirection*iter][y+yDirection*iter] != input[iter]) {
+			return 0;
+		}
+	}
+	return 1;
+	*/
 	
 }
 /* @END_OF_SOURCE_CODE */
