@@ -38,7 +38,7 @@ int main() {
 		scanf("%d\n", &k);
 		for (iter = 0; iter < k; ++iter) {
 			
-			fgets(input, 20+2, stdin);
+			fgets(input, n+2, stdin);
 			int inputLength = toLowerCase(input);
 			/*
 				// print input
@@ -140,7 +140,7 @@ int findDirection(char **map, char *input, int inputLength, int x, int y, int in
 		yDirection = (direction / 4 == 0)? -1: 1;
 	}
 	
-	/*	section A
+	/*	section A */
 	if (map[x][y] == input[index]) {
 		if (inputLength == index+1) {
 			return 1;
@@ -150,7 +150,6 @@ int findDirection(char **map, char *input, int inputLength, int x, int y, int in
 	} else {
 		return 0;
 	}
-	*/
 	
 	/*	section B
 	int iter;
